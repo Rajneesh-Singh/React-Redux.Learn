@@ -1,22 +1,25 @@
 
-import {createStore, combineReducers} from 'redux'
-import personReducer from './reducers/personReducer'
-import gameReducer from './reducers/gameReducer'
+import {createStore, combineReducers , applyMiddleware ,compose} from 'redux'
+import userReducer from './reducers/userReducer'
+import thunk from 'redux-thunk'
 
 
 // const reducer = (state , actions) =>{
   
   
-const allReducers = combineReducers({game:gameReducer,person:personReducer})
+const allReducers = combineReducers({userData:userReducer})
+
 
    
    
 const InitialState = {
-       person:{name:"Aman Singh"},
-       game:{game:"Cricket"}
+       userData:[],
+       editUserData:[]
    }
 
-const store = createStore(allReducers , InitialState ,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+//    const middleware = [thunk]
+
+const store = createStore(allReducers , InitialState , compose( applyMiddleware(thunk) , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() ) )
 console.log(store.getState())
 
 
