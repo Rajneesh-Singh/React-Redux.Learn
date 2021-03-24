@@ -6,6 +6,7 @@ import thunk from "redux-thunk";
 
 const allReducers = combineReducers({ userData: userReducer });
 
+
 const InitialState = {
   userData: [],
   editUserData: [],
