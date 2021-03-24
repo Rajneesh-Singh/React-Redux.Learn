@@ -5,9 +5,9 @@ export const UPDATE_USER_DETAILS = "UPDATE_USER_DETAILS";
 export const DELETE_USER = "DELETE_USER";
 
 export const fetch_user = (data) => {
-  // fetch('https://reqres.in/api/users')
-  // .then(res => res.json())
-  // .then(res => dispatch({type:UPDATE_USER,payload:res.data}))
+//   fetch('https://jsonplaceholder.typicode.com/todos/1')
+//   .then(response => response.json())
+//   .then(json => console.log(json))
   console.log("userdata", data);
   return { type: UPDATE_USER, payload: data };
 };
