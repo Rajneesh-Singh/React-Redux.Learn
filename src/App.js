@@ -9,6 +9,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Box from "@material-ui/core/Box";
 import { useTheme } from "@material-ui/core/styles";
 import ViewDetails from "./viewDetails";
+import { useHistory } from "react-router-dom"
 
 function App({
   fetchUser,
@@ -31,6 +32,7 @@ function App({
 
   const themeContext = useTheme();
   const isMobile = useMediaQuery(themeContext.breakpoints.down("sm"));
+  let history = useHistory()
 
   useEffect(() => {
     console.log("u++", users);
@@ -154,6 +156,7 @@ function App({
   const viewUserDetailHandler = () => {
     setDisplay(true);
     setShow(false);
+    history.push('/viewDetails')
   };
 
   return (
@@ -309,7 +312,7 @@ function App({
           {users && users.length > 0 && show ? <FormDetails /> : []}
         </Grid>
       </Grid>
-      {display ? <ViewDetails /> : []}
+      {/* {display ? <ViewDetails /> : []} */}
     </React.Fragment>
   );
 }
